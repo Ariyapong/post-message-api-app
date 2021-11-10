@@ -24,7 +24,7 @@ export default {
         "https://portal.the1.co.th"
       ];
 
-      console.log("start listen : ");
+      console.log("start listen v.5 : ");
       //respond to events
       window.addEventListener(
         "message",
