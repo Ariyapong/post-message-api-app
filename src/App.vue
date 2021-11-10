@@ -29,7 +29,7 @@ export default {
         "https://portal.the1.co.th",
       ];
 
-      console.log("start listen v.7 : ");
+      console.log("start listen v.8 : ");
       let tempIns = this
 
       console.log("tempins : ", tempIns.sampleData)
