@@ -14,19 +14,21 @@ export default {
   created() {
     this.listenMsg();
   },
-  listenMsg() {
-    console.log("start listen : ");
-    //respond to events
-    window.addEventListener(
-      "message",
-      function (event) {
-        console.log("debug : ", event);
-        if (event.origin !== "http://localhost:3000/dropLead") return;
-        console.log("message received:  " + event.data, event);
-        event.source.postMessage("holla back youngin!", event.origin);
-      },
-      false
-    );
+  methods: {
+    listenMsg() {
+      console.log("start listen : ");
+      //respond to events
+      window.addEventListener(
+        "message",
+        function (event) {
+          console.log("debug : ", event);
+          if (event.origin !== "http://localhost:3000/dropLead") return;
+          console.log("message received:  " + event.data, event);
+          event.source.postMessage("holla back youngin!", event.origin);
+        },
+        false
+      );
+    },
   },
 };
 </script>
