@@ -102,6 +102,9 @@ export default {
       },
     },
   },
+  mounted() {
+    console.log("data json : ", this.sampleData);
+  },
 };
 </script>
 
