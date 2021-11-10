@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      sampleData: null,
+      sampleData: 'hello',
     };
   },
   created() {
@@ -30,6 +30,9 @@ export default {
       ];
 
       console.log("start listen v.7 : ");
+      let tempIns = this
+
+      console.log("tempins : ", tempIns.sampleData)
       //respond to events
       window.addEventListener(
         "message",
@@ -41,7 +44,7 @@ export default {
 
           console.log("message received:  " + event.data, event);
 
-          this.sampleData(JSON.parse(event.data));
+          tempIns.sampleData(JSON.parse(event.data));
           sessionStorage.setItem("renderJson", event.data);
 
           event.source.postMessage("i get it!", event.origin);

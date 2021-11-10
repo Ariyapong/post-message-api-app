@@ -83,6 +83,7 @@
         >
       </li>
     </ul>
+    <p>render info from another domain</p>
     {{ jsonResult }}
   </div>
 </template>
