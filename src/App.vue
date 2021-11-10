@@ -16,13 +16,22 @@ export default {
   },
   methods: {
     listenMsg() {
+      const domains = [
+        "http://localhost:3000",
+        "https://sit-portal.the1.co.th",
+        "https://uat-portal.the1.co.th",
+        "https://pvt-portal.the1.co.th",
+        "https://portal.the1.co.th"
+      ];
+
       console.log("start listen : ");
       //respond to events
       window.addEventListener(
         "message",
         function (event) {
           console.log("debug : ", event);
-          if (event.origin !== "http://localhost:3000/dropLead") return;
+          // if (event.origin !== "http://localhost:3000") return;
+          if (domains.indexOf(event.origin) === -1) return;
           console.log("message received:  " + event.data, event);
           event.source.postMessage("holla back youngin!", event.origin);
         },
