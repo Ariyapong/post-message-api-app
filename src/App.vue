@@ -21,19 +21,24 @@ export default {
         "https://sit-portal.the1.co.th",
         "https://uat-portal.the1.co.th",
         "https://pvt-portal.the1.co.th",
-        "https://portal.the1.co.th"
+        "https://portal.the1.co.th",
       ];
 
-      console.log("start listen v.5 : ");
+      console.log("start listen v.6 : ");
       //respond to events
       window.addEventListener(
         "message",
         function (event) {
           console.log("debug : ", event);
+
           // if (event.origin !== "http://localhost:3000") return;
           if (domains.indexOf(event.origin) === -1) return;
+
           console.log("message received:  " + event.data, event);
-          event.source.postMessage("holla back youngin!", event.origin);
+
+          sessionStorage.setItem("renderJson", event.data);
+
+          event.source.postMessage("i get it!", event.origin);
         },
         false
       );
