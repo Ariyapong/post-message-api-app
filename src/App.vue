@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <HelloWorld msg="Welcome to Your Vue.js App" :sampleData="sampleData" />
 </template>
 
 <script>
@@ -10,6 +10,11 @@ export default {
   name: "App",
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      sampleData: null,
+    };
   },
   created() {
     this.listenMsg();
@@ -24,7 +29,7 @@ export default {
         "https://portal.the1.co.th",
       ];
 
-      console.log("start listen v.6 : ");
+      console.log("start listen v.7 : ");
       //respond to events
       window.addEventListener(
         "message",
@@ -36,6 +41,7 @@ export default {
 
           console.log("message received:  " + event.data, event);
 
+          this.sampleData(JSON.parse(event.data));
           sessionStorage.setItem("renderJson", event.data);
 
           event.source.postMessage("i get it!", event.origin);
