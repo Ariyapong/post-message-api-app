@@ -1,17 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+  created() {
+    this.listenMsg();
+  },
+  listenMsg() {
+    console.log("start listen : ");
+    //respond to events
+    window.addEventListener(
+      "message",
+      function (event) {
+        console.log("debug : ", event);
+        if (event.origin !== "http://localhost:3000/dropLead") return;
+        console.log("message received:  " + event.data, event);
+        event.source.postMessage("holla back youngin!", event.origin);
+      },
+      false
+    );
+  },
+};
 </script>
 
 <style>
