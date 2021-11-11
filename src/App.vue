@@ -30,7 +30,7 @@ export default {
         "https://portal.the1.co.th",
       ];
 
-      console.log("start listen v.10 : ");
+      console.log("start listen v.11 : ");
       let tempIns = this;
 
       console.log("tempins : ", tempIns.sampleData);
@@ -38,16 +38,18 @@ export default {
       window.addEventListener(
         "message",
         function (event) {
-          console.log("debug : ", event);
+          if (event.data.originName && event.data.originName === "the1portal") {
+            let { originName, value } = event.data;
+            console.log("originName : ", originName);
+            console.log("debug : ", event);
+            // if (event.origin !== "http://localhost:3000") return;
+            if (domains.indexOf(event.origin) === -1) return;
+            console.log("message received:  " + value, event);
 
-          // if (event.origin !== "http://localhost:3000") return;
-          if (domains.indexOf(event.origin) === -1) return;
-
-          console.log("message received:  " + event.data, event);
-
-          tempIns.sampleData = JSON.parse(event.data);
-          sessionStorage.setItem("renderJson", event.data);
-          event.source.postMessage("i get it!", event.origin);
+            tempIns.sampleData = JSON.parse(value);
+            sessionStorage.setItem("renderJson", value);
+            event.source.postMessage("i get it!", event.origin);
+          }
         },
         false
       );
