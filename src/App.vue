@@ -23,6 +23,7 @@ export default {
     listenMsg() {
       const domains = [
         "http://localhost:3000",
+        "http://localhost:3000/dropLead",
         "https://sit-portal.the1.co.th",
         "https://uat-portal.the1.co.th",
         "https://pvt-portal.the1.co.th",
