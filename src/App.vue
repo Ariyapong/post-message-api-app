@@ -49,6 +49,8 @@ export default {
             tempIns.sampleData = JSON.parse(value);
             sessionStorage.setItem("renderJson", value);
             event.source.postMessage("i get it!", event.origin);
+
+            console.log("test 111");
           }
         },
         false
