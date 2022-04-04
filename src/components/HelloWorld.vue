@@ -104,6 +104,7 @@ export default {
   },
   mounted() {
     console.log("data json : ", this.sampleData);
+    console.log("data json tewtts22 : ", this.sampleData);
   },
 };
 </script>
