@@ -33,7 +33,9 @@ export default {
       console.log("start listen v.11 : ");
       let tempIns = this;
 
+      console.log("debug tempIns obj :", tempIns);
       console.log("tempins : ", tempIns.sampleData);
+       
       //respond to events
       window.addEventListener(
         "message",
@@ -51,6 +53,7 @@ export default {
             event.source.postMessage("i get it!", event.origin);
 
             console.log("test 111");
+            console.log("test 114");
           }
         },
         false
