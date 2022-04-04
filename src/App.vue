@@ -34,8 +34,7 @@ export default {
       let tempIns = this;
 
       console.log("debug tempIns obj :", tempIns);
-      console.log("tempins : ", tempIns.sampleData);
-      console.log("tempins 2: ", tempIns);
+
        
       //respond to events
       window.addEventListener(
@@ -53,8 +52,7 @@ export default {
             sessionStorage.setItem("renderJson", value);
             event.source.postMessage("i get it!", event.origin);
 
-            console.log("test 111");
-            console.log("test 114");
+            console.log("test 113");
           }
         },
         false
