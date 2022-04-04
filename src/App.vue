@@ -35,6 +35,7 @@ export default {
 
       console.log("debug tempIns obj :", tempIns);
       console.log("tempins : ", tempIns.sampleData);
+      console.log("tempins 2: ", tempIns);
        
       //respond to events
       window.addEventListener(
